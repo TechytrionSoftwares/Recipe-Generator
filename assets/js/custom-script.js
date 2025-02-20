@@ -1,19 +1,4 @@
 jQuery(document).ready(function($) {
-// 	$('#ingredient').on('change', function() {
-// 		var categoryId = $(this).find('option:selected').attr('data-id');
-// 		console.log(categoryId);
-// 		$.ajax({
-// 			url: ajax_object.ajax_url,
-// 			type: 'POST',
-// 			data: {
-// 				action: 'get_posts_by_category',
-// 				category_id: categoryId
-// 			},
-// 			success: function(response) {
-// 				$('#recipe-idea').val(localizedStrings.dishBasisText + ' ' + response);
-// 			}
-// 		});
-// 	});
 	$('#ingredient').on('change', function() {
     var categoryId = $(this).find('option:selected').val();
     var currentValue = $('#recipe-idea').val();

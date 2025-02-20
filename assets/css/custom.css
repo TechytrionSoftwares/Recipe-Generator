@@ -139,22 +139,6 @@ body.page-id-11 {
     max-height: 250px;
     object-fit: cover;
 }
-/*#response-container .recipe-content {*/
-/*    margin-bottom: 60px;*/
-/*    margin-top: 0;*/
-/*    overflow: hidden;*/
-/*    padding-bottom: 0;*/
-/*    text-overflow: ellipsis;*/
-/*    display: -webkit-box;*/
-/*    -webkit-line-clamp: 3;*/
-/*    -webkit-box-orient: vertical;*/
-/*    padding-top: 30px;*/
-/*    text-align: left;*/
-/*    font-weight: normal;*/
-/*    font-size: 16px;*/
-/*    color: black;*/
-/*    font-family: 'Avenir Next Cyr', sans-serif;*/
-/*}*/
 #response-container .recipe-content {
     min-height: 72px;
     margin-bottom: 16px;
@@ -326,18 +310,6 @@ body.page-id-11 {
 }
 
 /* General styles for the range slider */
-/*#cooking_time_sldr {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 100%;
-  height: 10px;
-  background: rgb(230, 230, 230);
-  border-radius: 5px;
-  outline: none;
-  opacity: 0.7;
-  transition: opacity .2s;
-}
-*/
 #cooking_time_sldr:hover {
   opacity: 1;
 }
@@ -365,22 +337,6 @@ body.page-id-11 {
 }
 
 /* WebKit (Chrome, Safari, Opera) styles 
-#cooking_time_sldr::-webkit-slider-runnable-track {
-  background-color: rgb(230, 230, 230);
-  border-radius: 5px;
-  height: 10px;
-}*/
-
-/*#cooking_time_sldr::-webkit-slider-thumb {
-  -webkit-appearance: none; 
-  appearance: none;
-  width: 20px;
-  height: 20px;
-  background-color: rgb(0, 117, 255);
-  border-radius: 50%;
-  cursor: pointer;
-  border: none; 
-}*/
 
 /* Edge styles */
 #cooking_time_sldr::-ms-track {
@@ -410,16 +366,6 @@ body.page-id-11 {
   border: none; /* Ensure consistency */
 }
 
-
-/*#response-container .recipe-title {*/
-/*    margin-bottom: 0;*/
-/*    padding-top: 15px;*/
-/*    padding-bottom: 30px;*/
-/*    font-weight: bold;*/
-/*    font-size: 18px;*/
-/*    color: black;*/
-/*    line-height: 25px;*/
-/*}*/
 #response-container .recipe-title {
     margin-bottom: 0;
     padding-top: 12px;

@@ -91,36 +91,4 @@ get_header(); ?>
         <?php endwhile; ?>
     </main>
 </div>
-<style>
-/*    .recipe-top-overview {
-    display: flex;
-    gap: 40px;
-}
-.recipe-category-overview p {
-    width: max-content;
-    background: #e48200;
-    border-radius: 8px;
-    padding: 5px 15px;
-    color: #fff;
-}
-.recipe-top-content {
-    display: flex;
-    flex-wrap: wrap;
-}
-.recipe-top-content p:nth-child(1) {
-    width: 100%;
-}
-.recipe-top-content p:nth-child(2) {
-    width: 40%;
-}
-.recipe-top-content p:nth-child(3) {
-    width: 50%;
-}
-.recipe-image-box .recipe-image {
-    background-size: cover;
-    height: 400px;
-    background-position: center center;
-}
-*/
-</style>
 <?php get_footer();

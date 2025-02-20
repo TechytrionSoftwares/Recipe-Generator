@@ -20,9 +20,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 define('CRG_NAME',"crg");
 include_once plugin_dir_path( __FILE__ ) . 'includes/ingredient-template.php';
-// Function to create the custom post type
-// 
 
+// Function to create the custom post type
 add_action('init','crg_language_translate');
 function crg_language_translate(){
 	load_plugin_textdomain( 'crg', false, plugin_basename( dirname( __FILE__ ) ) . '/languages/' );
@@ -427,24 +426,13 @@ function handle_recipe_submission() {
 
 
 function call_chatgpt_api($recipe, $ingredient, $recipe_idea, $product, $quantity, $cookingtime, $creatpea_instruction) {
-    // Old key
-    // $api_key = 'sk-proj-X4RRTsvPXJeemtR9lgCYT3BlbkFJbJbUzT3f2ulDIBjAeIfk';
-    // New key
-    $api_key = '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';
+    $api_key = ''; //Enter api key
 
     $responses = [];
     $current_language = apply_filters('wpml_current_language', null);
     for ($i = 0; $i < 2; $i++) {
-        if( $current_language == "he"){
-            // $request_body_text = json_encode([
-            //     			'model' => 'gpt-3.5-turbo',
-            //     			'messages' => [
-            //     				['role' => 'system', 'content' => 'You are a helpful assistant.'],
-            //     							['role' => 'user', 'content' => 
-            //     							"כיש לי מתכון עם בסיס: $recipe, ורכיב: $ingredient, יחד עם $product. הנה הרעיון: $recipe_idea. הכמות היא $quantity. זמן הבישול הכולל הוא $cookingtime. האם תוכל לעזור לי עם מתכון מפורט? הנה הוראות נוספות: ספק סקירה כללית של 30 מילים על המתכון ב-div עם class 'overview'. לאחר מכן, הוסף div נפרד עם class 'Ingredients'. ב-div זה, כותרת הרכיב צריכה להיות בתג <h3> ורשום את הרכיבים ואת המשקל/כף/כמות בתג <table> עם כותרות 'Ingredient' ו-'Amount'. רשום כל רכיב עם 'weight', 'tablespoon', או 'amount' ספציפיים — ודא שכל הרכיבים מספקים פרטים אלה במדויק עם מדידה מדויקת ולא השתמש ב-'quantity as desired', אל תשתמש ב-'varies' או מדידות מעורפלות. לאחר מכן, הוסף div נפרד עם class 'how-to-cook'. ב-div זה, הכותרת 'How to Cook' צריכה להיות בתג <h3>, ותאר את תהליך הבישול עם אייקונים כלולים. השתמש בתגיות <ul> ו-<li> לרשימה ואל השתמש ב-'Step 1:' , אל השתמש ב-'1:' , אל השתמש ב-'1.' , אל השתמש ב-'Step 1.' ואל השתמש באייקונים ב-'How to Cook'. השמט את תגיות ה-head וה-body HTML. נדרש בשפה האנגלית. לאחר מכן, הוסף div נפרד עם class 'Nutritional_Value'. ב-div זה, כותרת 'Nutritional Value' צריכה להיות בתג <h3> ו-'Nutritional Value' בתג <table> עם כותרות 'Nutritions' ו-'Calories', וב-'Nutritions' הצג Nutritions וב-'Calories' הצג Gram Value — ודא שכל ערך תזונתי ו- Gram Value מספקים פרטים אלו במדויק עם מדידה מדויקת ואל השתמש ב-'varies Based', אל השתמש ב-'Varies' או מדידות מעורפלות."]
-            //     			]
-            // ]);
-            
+        if( $current_language == "he")
+        {
             $request_body_text = json_encode([
                 'model' => 'gpt-3.5-turbo',
                 'messages' => [
@@ -466,22 +454,6 @@ function call_chatgpt_api($recipe, $ingredient, $recipe_idea, $product, $quantit
                 ]
             ]);
 		}else{
-            // $request_body_text = json_encode([
-            // 			'model' => 'gpt-3.5-turbo',
-            // 			'messages' => [
-            // 				['role' => 'system', 'content' => 'You are a helpful assistant.'],
-            // 				['role' => 'user', 'content' => "I have a recipe with the base: $recipe, and an ingredient: $ingredient, along with $product. Here is the idea: $recipe_idea. The quantity is $quantity. The total cooking time is $cookingtime. Can you help me with a detailed recipe? Here are some additional instructions: Provide a 30-word overview of the recipe in a div with class 'overview'. Then, include a separate div with class 'Ingredients'. In this div, the ingredient title should be in an h3 tag and ingredients and weight/tablespoon/amount in table tag with th heading 'Ingredient' and 'Amount'. List each ingredient with a specific 'weight', 'tablespoon', or 'amount'—ensure that all ingredients provide these details explicitly. Do not use 'quantity as desired' or any vague measurements. After that, include a separate div with class 'how-to-cook'. In this div, the 'How to Cook' title should be in an h3 tag, and describe the cooking process with icons included. Use ul and li tags for the list and do not use 'Step 1:' , do not use '1:', do not use '1.', do not use 'Step 1.' and do not use icons in the 'How to Cook'. Exclude HTML head and body tags. Need in English language.Then, include a separate div with class 'Nutritional Value'. In this div, the 'Nutritional Value' title should be in an h3 tag and 'Calories' like 'Cholesterol, Fat, Protein Etc' and 'Approximately Gram' Like '10g Etc' in table tag with th heading 'Calories' and 'Approximately Gram'. List each Calories with a specific 'gram'—ensure that all ingredients provide these details explicitly."]
-            // 			]
-            // 		]);
-
-            // $request_body_text = json_encode([
-            // 			'model' => 'gpt-3.5-turbo',
-            // 			'messages' => [
-            // 				['role' => 'system', 'content' => 'You are a helpful assistant.'],
-            // 				['role' => 'user', 'content' => "I have a recipe with the base: $recipe, and an ingredient: $ingredient, along with $product. Here is the idea: $recipe_idea. The quantity is $quantity. The total cooking time is $cookingtime. Can you help me with a detailed recipe? Here are some additional instructions: Provide a 30-word overview of the recipe in a div with class 'overview'. Then, include a separate div with class 'Ingredients'. In this div, the ingredient title should be in an h3 tag and ingredients and weight/tablespoon/amount in table tag with th heading 'Ingredient' and 'Amount'. List each ingredient with a specific 'weight', 'tablespoon', or 'amount' —ensure that all ingredients provide these details explicitly with exact measurement and do not use 'quantity as desired', do not use 'varies' or any vague measurements. After that, include a separate div with class 'how-to-cook'. In this div, the 'How to Cook' title should be in an h3 tag, and describe the cooking process with detailed instructions with a minimum of 20 words per line and no icons included. Use ul and li tags for the list and do not use 'Step 1:', do not use '1:', do not use '1.', do not use 'Step 1.' and do not use icons in the 'How to Cook'. Exclude HTML head and body tags. Need in English language. Then, include a separate div with class 'Nutritional_Value'. In this div, the 'Nutritional Value' title should be in an h3 tag and 'Nutritional Value' in table tag with th heading 'Nutritions' and 'Calories' and in 'Nutritions' tab show Nutritions and in 'Calories' show Gram Value —ensure that all Nutrition Value and Gram Value provide these details explicitly with exact measurement and do not use 'varies Based', do not use 'Varies' or do not use any vague measurements."]
-            // 			]
-            // 		]);
-
             $request_body_text = json_encode([
     			'model' => 'gpt-3.5-turbo',
     			'messages' => [
@@ -610,8 +582,4 @@ function render_recipe_cooking_time_metabox($post) {
     $value = get_post_meta($post->ID, 'recipe_cooking_time', true);
     echo '<input type="text" name="recipe_cooking_time" value="' . esc_attr($value) . '" class="widefat">';
 }
-
-
-
-
 ?>

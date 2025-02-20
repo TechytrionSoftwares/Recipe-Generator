@@ -103,7 +103,7 @@
 			<label for="recipe-idea" class="block text-sm font-medium text-foreground ctn"><?php esc_html_e('Enter Your Recipe Idea', 'crg'); ?></label>
         <textarea id="recipe-idea" name="recipe_idea" rows="6" class="mt-1 block w-full p-2 border border-input rounded-md bg-background text-foreground ctn" placeholder="<?php esc_html_e('Free description of your recipe idea. Example: Buckwheat with chicken. Add tomatoes, basil... or Round Rice and Mango Dessert...', 'crg') ?>"></textarea>
       </div>
-<div class="flex-ctnwrp">	   
+    <div class="flex-ctnwrp">	   
 	   <div class="size-70 right_drpdwn descrption-box">       
 		   <label for="ingredient" class="block text-sm font-medium text-foreground"><?php esc_html_e('Select Product', 'crg'); ?></label>
          <?php
@@ -181,7 +181,6 @@
 		  <div id="ball-2" class="circle_bonce"></div>
 		  <div id="ball-3" class="circle_bonce"></div>
 	   </div>
-      <!-- <img src="<?php //echo plugins_url( 'assets/images/load-33_256.gif', dirname(__FILE__) ); ?>" alt="Recipe Image" style="max-width: 100%;width: 35%;"> -->
    </div>
    <div class="recipe-post before-rsp-recipe" style="text-align:center;display:none;padding-top: 50px;">
       <img src="<?php echo plugins_url( 'assets/images/cooking.gif', dirname(__FILE__) ); ?>" alt="Recipe Image" style="max-width: 100%;width: 50%;">
